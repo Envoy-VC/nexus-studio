@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "2.2.5",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@repo/config": "workspace:*",
+    "lefthook": "^1.13.6",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "name": "turbo-starter",
+  "packageManager": "pnpm@9.4.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "commitlint": "commitlint --edit",
+    "dev": "turbo dev",
+    "format": "pnpm exec biome format --write",
+    "format:check": "pnpm exec biome format",
+    "lint": "pnpm exec biome check --write",
+    "lint:check": "pnpm exec biome check",
+    "lint:write": "turbo lint:write",
+    "prepare": "lefthook install"
+  }
+}
