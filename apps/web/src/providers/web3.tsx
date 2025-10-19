@@ -2,12 +2,20 @@
 
 import { type PropsWithChildren, useState } from "react";
 
-import { WagmiProvider } from "wagmi";
+import { type State, WagmiProvider } from "wagmi";
 
 import { getWagmiConfig } from "@/lib/wagmi";
 
-export const Web3Provider = (props: PropsWithChildren) => {
+interface Web3ProviderProps {
+  initialState?: State;
+}
+
+export const Web3Provider = (props: PropsWithChildren<Web3ProviderProps>) => {
   const [wagmiConfig] = useState(() => getWagmiConfig());
 
-  return <WagmiProvider config={wagmiConfig}>{props.children}</WagmiProvider>;
+  return (
+    <WagmiProvider config={wagmiConfig} initialState={props.initialState}>
+      {props.children}
+    </WagmiProvider>
+  );
 };

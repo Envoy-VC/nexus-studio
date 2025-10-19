@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@avail-project/nexus-core": "^0.0.1",
     "@nexus-studio/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "^5.90.2",
@@ -35,9 +36,9 @@
   "name": "web-next",
   "private": true,
   "scripts": {
-    "build": "next build --turbo",
+    "build": "next build",
     "check": "pnpm format && tsc --noEmit",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit"

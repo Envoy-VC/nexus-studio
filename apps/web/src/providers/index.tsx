@@ -1,3 +1,5 @@
+"use client";
+
 import type { PropsWithChildren } from "react";
 
 import type { State } from "wagmi";
@@ -11,7 +13,7 @@ interface ProviderTreeProps {
 
 export const ProviderTree = (props: PropsWithChildren<ProviderTreeProps>) => {
   return (
-    <Web3Provider>
+    <Web3Provider initialState={props.initialState}>
       <QueryProvider>{props.children}</QueryProvider>
     </Web3Provider>
   );
