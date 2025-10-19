@@ -1,4 +1,4 @@
-import { Button } from "@repo/ui/components/button";
+import { Button } from "@nexus-studio/ui/components/button";
 
 const Home = () => {
   return (

@@ -18,7 +18,7 @@
   },
   "files": ["./biome", "./tsconfig"],
   "license": "MIT",
-  "name": "@repo/config",
+  "name": "@nexus-studio/config",
   "scripts": {
     "format": "pnpm exec biome format",
     "format:write": "pnpm exec biome format --write",

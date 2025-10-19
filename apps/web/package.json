@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@nexus-studio/ui": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.8",
     "@tanstack/react-query": "^5.90.2",
     "@trpc/client": "^11.6.0",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.5",
-    "@repo/config": "workspace:*",
+    "@nexus-studio/config": "workspace:*",
     "@tailwindcss/postcss": "4.1.14",
     "@types/node": "^24.6.2",
     "@types/react": "^19.2.0",

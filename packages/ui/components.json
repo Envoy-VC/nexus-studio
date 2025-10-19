@@ -1,11 +1,11 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "aliases": {
-    "components": "@repo/ui/components",
-    "hooks": "@repo/ui/hooks",
-    "lib": "@repo/ui/lib",
-    "ui": "@repo/ui/components",
-    "utils": "@repo/ui/lib/utils"
+    "components": "@nexus-studio/ui/components",
+    "hooks": "@nexus-studio/ui/hooks",
+    "lib": "@nexus-studio/ui/lib",
+    "ui": "@nexus-studio/ui/components",
+    "utils": "@nexus-studio/ui/lib/utils"
   },
   "iconLibrary": "lucide",
   "rsc": true,

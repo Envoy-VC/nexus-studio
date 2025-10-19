@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@repo/ui/*": ["../../packages/ui/src/*"]
+      "@nexus-studio/ui/*": ["../../packages/ui/src/*"]
     },
     "plugins": [
       {
@@ -13,6 +13,6 @@
     ]
   },
   "exclude": ["node_modules"],
-  "extends": ["@repo/config/tsconfig/app/next"],
+  "extends": ["@nexus-studio/config/tsconfig/app/next"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
