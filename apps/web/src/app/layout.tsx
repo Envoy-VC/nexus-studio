@@ -8,7 +8,6 @@ const geist = Geist({
   variable: "--font-geist",
 });
 
-import { TRPCReactProvider } from "@/trpc/react";
 import "@nexus-studio/ui/globals.css";
 
 export const metadata: Metadata = {
@@ -20,9 +19,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
   return (
     <html className={`${geist.variable} antialiased`} lang="en">
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 };
