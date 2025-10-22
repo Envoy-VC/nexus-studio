@@ -8,6 +8,7 @@
     "@trpc/react-query": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "@xyflow/react": "^12.9.0",
+    "connectkit": "^1.9.1",
     "lucide-react": "^0.544.0",
     "next": "^15.5.4",
     "react": "^19.2.0",

@@ -1,21 +1,16 @@
 "use client";
 
-import { type PropsWithChildren, useState } from "react";
+import type { PropsWithChildren } from "react";
 
-import { type State, WagmiProvider } from "wagmi";
+import { ConnectKitProvider } from "connectkit";
+import { WagmiProvider } from "wagmi";
 
-import { getWagmiConfig } from "@/lib/wagmi";
+import { wagmiConfig } from "@/lib/wagmi";
 
-interface Web3ProviderProps {
-  initialState?: State;
-}
-
-export const Web3Provider = (props: PropsWithChildren<Web3ProviderProps>) => {
-  const [wagmiConfig] = useState(() => getWagmiConfig());
-
+export const Web3Provider = (props: PropsWithChildren) => {
   return (
-    <WagmiProvider config={wagmiConfig} initialState={props.initialState}>
-      {props.children}
+    <WagmiProvider config={wagmiConfig}>
+      <ConnectKitProvider theme="soft">{props.children}</ConnectKitProvider>
     </WagmiProvider>
   );
 };

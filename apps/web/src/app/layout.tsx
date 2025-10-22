@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { headers } from "next/headers";
-
-import { cookieToInitialState } from "wagmi";
 
 const sans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -12,7 +9,6 @@ const sans = Plus_Jakarta_Sans({
 import "@nexus-studio/ui/globals.css";
 
 import { Navbar } from "@/components";
-import { getWagmiConfig } from "@/lib/wagmi";
 import { ProviderTree } from "@/providers";
 
 export const metadata: Metadata = {
@@ -21,12 +17,7 @@ export const metadata: Metadata = {
   title: "Create T3 App",
 };
 
-const RootLayout = async (props: LayoutProps<"/">) => {
-  const initialState = cookieToInitialState(
-    getWagmiConfig(),
-    (await headers()).get("cookie"),
-  );
-
+const RootLayout = (props: LayoutProps<"/">) => {
   return (
     <html
       className={`${sans.variable} antialiased`}
@@ -34,7 +25,7 @@ const RootLayout = async (props: LayoutProps<"/">) => {
       suppressHydrationWarning={true}
     >
       <body>
-        <ProviderTree initialState={initialState}>
+        <ProviderTree>
           <Navbar />
           {props.children}
         </ProviderTree>
