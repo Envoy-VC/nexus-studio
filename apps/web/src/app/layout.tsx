@@ -11,6 +11,7 @@ const sans = Plus_Jakarta_Sans({
 
 import "@nexus-studio/ui/globals.css";
 
+import { Navbar } from "@/components";
 import { getWagmiConfig } from "@/lib/wagmi";
 import { ProviderTree } from "@/providers";
 
@@ -34,6 +35,7 @@ const RootLayout = async (props: LayoutProps<"/">) => {
     >
       <body>
         <ProviderTree initialState={initialState}>
+          <Navbar />
           {props.children}
         </ProviderTree>
       </body>

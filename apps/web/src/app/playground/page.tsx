@@ -6,7 +6,9 @@ import {
   addEdge,
   applyEdgeChanges,
   applyNodeChanges,
+  Background,
   type Connection,
+  Controls,
   type Edge,
   type EdgeChange,
   type Node,
@@ -19,7 +21,7 @@ const initialNodes = [
   { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 0 } },
   { data: { label: "Node 2" }, id: "n2", position: { x: 0, y: 100 } },
 ];
-const initialEdges = [{ id: "n1-n2", source: "n1", target: "n2" }];
+const initialEdges = [] as Edge[];
 
 const PlaygroundPage = () => {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
@@ -50,7 +52,10 @@ const PlaygroundPage = () => {
         onConnect={onConnect}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
-      />
+      >
+        <Background />
+        <Controls />
+      </ReactFlow>
     </div>
   );
 };
