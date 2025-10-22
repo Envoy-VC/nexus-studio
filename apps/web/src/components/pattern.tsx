@@ -2,8 +2,7 @@ import type { PropsWithChildren } from "react";
 
 export const PatternWrapper = (props: PropsWithChildren) => {
   return (
-    <div className="relative min-h-screen w-full">
-      {/* Dashed Top Fade Grid */}
+    <>
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -54,6 +53,6 @@ repeating-linear-gradient(
         }}
       />
       {props.children}
-    </div>
+    </>
   );
 };

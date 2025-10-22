@@ -26,8 +26,10 @@ const RootLayout = (props: LayoutProps<"/">) => {
     >
       <body>
         <ProviderTree>
-          <Navbar />
-          {props.children}
+          <div className="h-screen">
+            <Navbar />
+            {props.children}
+          </div>
         </ProviderTree>
       </body>
     </html>

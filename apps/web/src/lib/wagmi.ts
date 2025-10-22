@@ -15,6 +15,7 @@ export const wagmiConfig = createConfig(
     appName: "Your App Name",
     appUrl: "https://family.co", // your app's url
     chains: networks,
+    enableFamily: false,
     transports: {
       [sepolia.id]: http(),
     },
