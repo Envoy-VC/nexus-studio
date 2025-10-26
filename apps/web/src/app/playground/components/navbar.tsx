@@ -4,6 +4,9 @@ import { NexusLogo } from "@nexus-studio/ui/icons";
 import { Panel } from "@xyflow/react";
 import { ConnectKitButton } from "connectkit";
 
+import { ExecuteButton } from "./execute-button";
+import { SimulateIntentButton } from "./simulate-button";
+
 export const PlaygroundNavbar = () => {
   return (
     <Panel className="!m-0 !w-full p-4" position="top-left">
@@ -14,7 +17,11 @@ export const PlaygroundNavbar = () => {
             Nexus Studio
           </div>
         </div>
-        <ConnectKitButton />
+        <div className="flex flex-row items-center gap-2">
+          <ExecuteButton />
+          <SimulateIntentButton />
+          <ConnectKitButton />
+        </div>
       </div>
     </Panel>
   );
