@@ -66,7 +66,6 @@ export const defaultNodes: Node<NodeData>[] = [
     dragHandle: ".drag-handle__custom",
     id: "transfer",
     position: { x: 0, y: 100 },
-    selected: true,
     type: "transfer",
   },
   {

@@ -1,5 +1,7 @@
 import { Panel } from "@xyflow/react";
 
+import { NodeUpdate } from "./node-updates";
+
 export const NodeView = () => {
   return (
     <Panel
@@ -7,7 +9,7 @@ export const NodeView = () => {
       position="top-right"
     >
       <div className="!bg-secondary-foreground sm pointer-events-auto h-full rounded-2xl border p-4">
-        node view
+        <NodeUpdate />
       </div>
     </Panel>
   );

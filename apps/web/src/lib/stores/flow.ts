@@ -22,7 +22,7 @@ type ReactFlowStore = ReactFlowStoreState & ReactFlowStoreActions;
 export const useReactFlowStore = create<ReactFlowStore>((set) => ({
   edges: defaultEdges,
   nodes: defaultNodes,
-  selectedNodeId: "transfer",
+  selectedNodeId: null,
   setEdges: (edges: Edge[]) => set({ edges }),
   setNodes: (nodes: Node<NodeData>[]) => set({ nodes }),
   setSelectedNodeId: (nodeId: string | null) => set({ selectedNodeId: nodeId }),

@@ -35,11 +35,15 @@ export const PlaygroundEditor = () => {
 
   const onNodesChange = useCallback(
     (changes: NodeChange<Node<NodeData>>[]) => {
+      console.log("Changes", changes);
       const nodesSnapshot = nodes;
       const newNodes = applyNodeChanges(changes, nodesSnapshot);
       const selectedNode = newNodes.find((node) => node.selected);
       if (selectedNode) {
+        console.log("Selected Node", selectedNode.id);
         setSelectedNodeId(selectedNode.id);
+      } else {
+        setSelectedNodeId(null);
       }
       setNodes(newNodes);
     },

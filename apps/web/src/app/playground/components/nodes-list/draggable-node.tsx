@@ -38,8 +38,8 @@ export const DraggableNode = ({ node, onDrop }: DraggableNodeProps) => {
       className="flex cursor-grab flex-row gap-2 rounded-lg bg-gray-100 p-2"
       ref={draggableRef}
     >
-      <div className="flex max-h-12 min-h-12 min-w-12 max-w-12 items-center justify-center rounded-[8px] bg-secondary/10">
-        <node.icon className="size-6 text-secondary" />
+      <div className="flex max-h-10 min-h-10 min-w-10 max-w-10 items-center justify-center rounded-[8px] bg-secondary/10">
+        <node.icon className="size-5 text-secondary" />
       </div>
       <div className="flex flex-col">
         <div className="font-bold">{node.label}</div>
