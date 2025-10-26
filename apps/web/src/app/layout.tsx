@@ -8,7 +8,6 @@ const sans = Plus_Jakarta_Sans({
 
 import "@nexus-studio/ui/globals.css";
 
-import { Navbar } from "@/components";
 import { ProviderTree } from "@/providers";
 
 export const metadata: Metadata = {
@@ -26,10 +25,7 @@ const RootLayout = (props: LayoutProps<"/">) => {
     >
       <body>
         <ProviderTree>
-          <div className="h-screen">
-            <Navbar />
-            {props.children}
-          </div>
+          <div className="h-screen">{props.children}</div>
         </ProviderTree>
       </body>
     </html>

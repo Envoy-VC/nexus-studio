@@ -1,11 +1,14 @@
-import { PatternWrapper } from "@/components";
+import { Navbar, PatternWrapper } from "@/components";
 
 const Home = () => {
   return (
-    <div className="relative h-full">
-      <PatternWrapper>
-        <div className="h-full">hello</div>
-      </PatternWrapper>
+    <div className="h-screen">
+      <Navbar />
+      <div className="relative h-[94dvh]">
+        <PatternWrapper>
+          <div className="h-full">hello</div>
+        </PatternWrapper>
+      </div>
     </div>
   );
 };
