@@ -1,5 +1,3 @@
-"use client";
-
 import { getDefaultConfig } from "connectkit";
 import { createConfig, http } from "wagmi";
 import { type Chain, sepolia } from "wagmi/chains";
