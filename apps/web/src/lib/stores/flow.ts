@@ -15,15 +15,34 @@ type ReactFlowStoreActions = {
   setNodes: (nodes: Node<NodeData>[]) => void;
   setEdges: (edges: Edge[]) => void;
   setSelectedNodeId: (nodeId: string | null) => void;
+  updateNodeData: (
+    nodeId: string,
+    key: string,
+    value: string | number | number[],
+  ) => void;
 };
 
 type ReactFlowStore = ReactFlowStoreState & ReactFlowStoreActions;
 
-export const useReactFlowStore = create<ReactFlowStore>((set) => ({
+export const useReactFlowStore = create<ReactFlowStore>((set, get) => ({
   edges: defaultEdges,
   nodes: defaultNodes,
   selectedNodeId: null,
   setEdges: (edges: Edge[]) => set({ edges }),
   setNodes: (nodes: Node<NodeData>[]) => set({ nodes }),
   setSelectedNodeId: (nodeId: string | null) => set({ selectedNodeId: nodeId }),
+  updateNodeData: (
+    nodeId: string,
+    key: string,
+    value: string | number | number[],
+  ) => {
+    const newNodes = get().nodes.map((node) => {
+      if (node.id === nodeId) {
+        return { ...node, data: { ...node.data, [key]: value } };
+      }
+      return node;
+    });
+
+    set({ nodes: newNodes });
+  },
 }));

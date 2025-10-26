@@ -49,7 +49,7 @@ export interface AnimationConfig {
  */
 const multiSelectVariants = cva("m-1 transition-all duration-300 ease-in-out", {
   defaultVariants: {
-    badgeAnimation: "bounce",
+    badgeAnimation: "none",
     variant: "default",
   },
   variants: {
@@ -808,7 +808,7 @@ export const MultiSelect = react.forwardRef<MultiSelectRef, MultiSelectProps>(
                 getAllOptions().length
               } options selected. ${placeholder}`}
               className={cn(
-                "flex h-auto min-h-10 items-center justify-between rounded-md border bg-inherit p-1 hover:bg-inherit [&_svg]:pointer-events-auto",
+                "flex h-auto min-h-10 items-center justify-between rounded-xl border bg-inherit p-1 hover:bg-inherit [&_svg]:pointer-events-auto",
                 autoSize ? "w-auto" : "w-full",
                 responsiveSettings.compactMode && "min-h-8 text-sm",
                 screenSize === "mobile" && "min-h-12 text-base",
@@ -1125,9 +1125,9 @@ export const MultiSelect = react.forwardRef<MultiSelectRef, MultiSelectProps>(
                             <div
                               aria-hidden="true"
                               className={cn(
-                                "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                                "mr-2 flex h-4 w-4 items-center justify-center rounded-md border border-primary",
                                 isSelected
-                                  ? "bg-primary text-primary-foreground"
+                                  ? "!bg-primary-foreground !text-primary"
                                   : "opacity-50 [&_svg]:invisible",
                               )}
                             >
@@ -1170,7 +1170,7 @@ export const MultiSelect = react.forwardRef<MultiSelectRef, MultiSelectProps>(
                             className={cn(
                               "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
                               isSelected
-                                ? "bg-primary text-primary-foreground"
+                                ? "bg-primary-foreground text-primary"
                                 : "opacity-50 [&_svg]:invisible",
                             )}
                           >

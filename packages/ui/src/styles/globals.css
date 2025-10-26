@@ -6,8 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: --var(--color-white);
-  --foreground: --var(--color-gray-800);
+  --background: var(--color-white);
+  --foreground: var(--color-gray-800);
 
   --card: var(--color-white);
   --card-foreground: var(--color-gray-800);

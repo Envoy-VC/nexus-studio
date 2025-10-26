@@ -3,7 +3,6 @@ import { useMemo } from "react";
 import { getChainMetadata, getTokenMetadata } from "@avail-project/nexus-core";
 import { Handle, type Node, type NodeProps, Position } from "@xyflow/react";
 import { GripVerticalIcon, Rotate3DIcon } from "lucide-react";
-import { formatUnits } from "viem";
 
 import { truncateEthAddress } from "@/lib/helpers";
 import type { TransferNodeData } from "@/types";
@@ -72,9 +71,7 @@ export const TransferNode = ({ data }: NodeProps<TransferNodeProps>) => {
           <div className="flex w-full flex-row items-center justify-between rounded-md bg-gray-100 px-3 py-1 text-sm">
             <div className="font-semibold">Amount</div>
             <div className="flex flex-row items-center gap-1">
-              <div className="font-bold">
-                {formatUnits(BigInt(data.amount), tokenMetadata.decimals)}
-              </div>
+              <div className="font-bold">{data.amount}</div>
             </div>
           </div>
           <div className="flex w-full flex-row items-center justify-between rounded-md bg-gray-100 px-3 py-1 text-sm">
