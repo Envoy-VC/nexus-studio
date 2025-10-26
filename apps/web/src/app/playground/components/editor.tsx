@@ -35,19 +35,31 @@ const initialNodes: Node[] = [
     position: { x: 0, y: 0 },
     type: "terminal",
   },
-  { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 100 } },
+  {
+    data: {
+      amount: 1_000_000_000_000,
+      chainId: 11155111,
+      recipient: "0xc0d86456F6f2930b892f3DAD007CDBE32c081FE6",
+      sourceChains: [11155111, 84532],
+      token: "ETH",
+    },
+    dragHandle: ".drag-handle__custom",
+    id: "transfer",
+    position: { x: 0, y: 100 },
+    type: "transfer",
+  },
   {
     data: { type: "end" },
     deletable: false,
     dragHandle: ".drag-handle__custom",
     id: "terminal-end",
-    position: { x: 0, y: 300 },
+    position: { x: 0, y: 500 },
     type: "terminal",
   },
 ];
 const initialEdges = [
-  { id: "start->n1", source: "terminal-start", target: "n1" },
-  { id: "n1->terminal-end", source: "n1", target: "terminal-end" },
+  { id: "start->transfer", source: "terminal-start", target: "transfer" },
+  { id: "transfer->terminal-end", source: "transfer", target: "terminal-end" },
 ] as Edge[];
 
 export const PlaygroundEditor = () => {
