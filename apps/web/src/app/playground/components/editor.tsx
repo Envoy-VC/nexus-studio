@@ -19,11 +19,23 @@ import "@xyflow/react/dist/style.css";
 
 import { PlaygroundNavbar } from "./navbar";
 import { NodeView } from "./node-view";
+import { nodeTypes } from "./nodes";
 import { NodesListView } from "./nodes-list-view";
 
 const initialNodes = [
-  { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 0 } },
-  { data: { label: "Node 2" }, id: "n2", position: { x: 0, y: 100 } },
+  {
+    data: { type: "start" },
+    id: "terminal-start",
+    position: { x: 0, y: 0 },
+    type: "terminal",
+  },
+  { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 100 } },
+  {
+    data: { type: "end" },
+    id: "terminal-end",
+    position: { x: 0, y: 300 },
+    type: "terminal",
+  },
 ];
 const initialEdges = [] as Edge[];
 
@@ -52,6 +64,7 @@ export const PlaygroundEditor = () => {
       edges={edges}
       fitView={true}
       nodes={nodes}
+      nodeTypes={nodeTypes}
       onConnect={onConnect}
       onEdgesChange={onEdgesChange}
       onNodesChange={onNodesChange}
