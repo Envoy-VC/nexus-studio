@@ -11,6 +11,9 @@ import {
   Controls,
   type Edge,
   type EdgeChange,
+  getConnectedEdges,
+  getIncomers,
+  getOutgoers,
   type Node,
   type NodeChange,
   ReactFlow,
@@ -23,10 +26,10 @@ import { NodeView } from "./node-view";
 import { nodeTypes } from "./nodes";
 import { NodesListView } from "./nodes-list-view";
 
-const initialNodes = [
+const initialNodes: Node[] = [
   {
-    ariaRole: "button",
     data: { type: "start" },
+    deletable: false,
     dragHandle: ".drag-handle__custom",
     id: "terminal-start",
     position: { x: 0, y: 0 },
@@ -35,25 +38,58 @@ const initialNodes = [
   { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 100 } },
   {
     data: { type: "end" },
+    deletable: false,
+    dragHandle: ".drag-handle__custom",
     id: "terminal-end",
     position: { x: 0, y: 300 },
     type: "terminal",
   },
 ];
-const initialEdges = [] as Edge[];
+const initialEdges = [
+  { id: "start->n1", source: "terminal-start", target: "n1" },
+  { id: "n1->terminal-end", source: "n1", target: "terminal-end" },
+] as Edge[];
 
 export const PlaygroundEditor = () => {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
 
   const onNodesChange = useCallback((changes: NodeChange<Node>[]) => {
-    const removedNodes = changes.filter((change) => change.type === "remove");
-    if (removedNodes.some((change) => change.id.startsWith("terminal"))) {
-      alert("You can't remove terminal nodes");
-      return;
-    }
+    console.log("Changes: ", changes);
     setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot));
   }, []);
+
+  const onNodesDelete = useCallback(
+    (deleted: Node[]) => {
+      console.log("Deleted: ", deleted);
+      let remainingNodes = [...nodes];
+      setEdges(
+        deleted.reduce((acc, node) => {
+          const incomers = getIncomers(node, remainingNodes, acc);
+          const outgoers = getOutgoers(node, remainingNodes, acc);
+          const connectedEdges = getConnectedEdges([node], acc);
+
+          const remainingEdges = acc.filter(
+            (edge) => !connectedEdges.includes(edge),
+          );
+
+          const createdEdges = incomers.flatMap(({ id: source }) =>
+            outgoers.map(({ id: target }) => ({
+              id: `${source}->${target}`,
+              source,
+              target,
+            })),
+          );
+
+          remainingNodes = remainingNodes.filter((rn) => rn.id !== node.id);
+
+          return [...remainingEdges, ...createdEdges];
+        }, edges),
+      );
+    },
+    [nodes, edges],
+  );
+
   const onEdgesChange = useCallback(
     (changes: EdgeChange<Edge>[]) =>
       setEdges((edgesSnapshot) => applyEdgeChanges(changes, edgesSnapshot)),
@@ -75,6 +111,7 @@ export const PlaygroundEditor = () => {
         onConnect={onConnect}
         onEdgesChange={onEdgesChange}
         onNodesChange={onNodesChange}
+        onNodesDelete={onNodesDelete}
       >
         <PlaygroundNavbar />
         <NodesListView />
