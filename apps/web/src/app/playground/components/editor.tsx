@@ -30,18 +30,20 @@ import { nodeTypes } from "./nodes";
 import { NodesListView } from "./nodes-list";
 
 export const PlaygroundEditor = () => {
-  const { nodes, edges, setEdges, setNodes } = useReactFlowStore();
+  const { nodes, edges, setEdges, setNodes, setSelectedNodeId } =
+    useReactFlowStore();
 
   const onNodesChange = useCallback(
-    (changes: NodeChange<Node>[]) => {
+    (changes: NodeChange<Node<NodeData>>[]) => {
       const nodesSnapshot = nodes;
-      const newNodes = applyNodeChanges(
-        changes,
-        nodesSnapshot,
-      ) as Node<NodeData>[];
+      const newNodes = applyNodeChanges(changes, nodesSnapshot);
+      const selectedNode = newNodes.find((node) => node.selected);
+      if (selectedNode) {
+        setSelectedNodeId(selectedNode.id);
+      }
       setNodes(newNodes);
     },
-    [nodes, setNodes],
+    [nodes, setNodes, setSelectedNodeId],
   );
 
   const onNodesDelete = useCallback(
