@@ -20,17 +20,6 @@ export const networks = [
   monadTestnet,
 ] as const;
 
-const chainMetadata = {
-  [sepolia.id]: {
-    icon: "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png",
-    name: "Sepolia",
-  },
-  [baseSepolia.id]: {
-    icon: "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png",
-    name: "Base Sepolia",
-  },
-};
-
 export const wagmiConfig = createConfig(
   getDefaultConfig({
     appDescription:
