@@ -1,26 +1,16 @@
 import { useMemo } from "react";
 
-import {
-  getChainMetadata,
-  getTokenMetadata,
-  type SUPPORTED_CHAINS_IDS,
-  type SUPPORTED_TOKENS,
-} from "@avail-project/nexus-core";
+import { getChainMetadata, getTokenMetadata } from "@avail-project/nexus-core";
 import { Handle, type Node, type NodeProps, Position } from "@xyflow/react";
 import { GripVerticalIcon, Rotate3DIcon } from "lucide-react";
 import { formatUnits } from "viem";
 
 import { truncateEthAddress } from "@/lib/helpers";
+import type { TransferNodeData } from "@/types";
 
 import { BaseNode } from "./base";
 
-type TransferNodeProps = Node<{
-  token: SUPPORTED_TOKENS;
-  amount: number | string;
-  chainId: SUPPORTED_CHAINS_IDS;
-  recipient: `0x${string}`;
-  sourceChains?: SUPPORTED_CHAINS_IDS[];
-}>;
+type TransferNodeProps = Node<TransferNodeData>;
 
 export const TransferNode = ({ data }: NodeProps<TransferNodeProps>) => {
   const tokenMetadata = useMemo(() => {

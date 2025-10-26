@@ -1,9 +1,11 @@
 import { Handle, type Node, type NodeProps, Position } from "@xyflow/react";
 import { CircleOffIcon, GripVerticalIcon, PlayIcon } from "lucide-react";
 
+import type { TerminalNodeData } from "@/types";
+
 import { BaseNode } from "./base";
 
-type TerminalNodeProps = Node<{ type: "start" | "end" }, "type">;
+type TerminalNodeProps = Node<TerminalNodeData>;
 
 export const TerminalNode = ({ data }: NodeProps<TerminalNodeProps>) => {
   const nodeType = data.type === "start" ? "Start Node" : "End Node";
