@@ -11,15 +11,24 @@ export type TerminalNodeData = {
   type: "start" | "end";
 };
 
+export type TestnetChain = (typeof TESTNET_CHAINS)[number];
+
 export type TransferNodeData = {
   token: SUPPORTED_TOKENS;
   amount: number | string;
-  chainId: (typeof TESTNET_CHAINS)[number];
+  chainId: TestnetChain;
   recipient: `0x${string}`;
-  sourceChains?: (typeof TESTNET_CHAINS)[number][];
+  sourceChains?: TestnetChain[];
 };
 
-export type NodeData = TerminalNodeData | TransferNodeData;
+export type BridgeNodeData = {
+  token: SUPPORTED_TOKENS;
+  amount: number | string;
+  chainId: TestnetChain;
+  sourceChains?: TestnetChain[];
+};
+
+export type NodeData = TerminalNodeData | TransferNodeData | BridgeNodeData;
 
 export type NodeMetadata = {
   description: string;

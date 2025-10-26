@@ -6,8 +6,14 @@ import { type Node, useReactFlow } from "@xyflow/react";
 
 import { nodes } from "@/lib/helpers";
 import { useReactFlowStore } from "@/lib/stores";
-import type { NodeData, NonTerminalNodeType, TransferNodeData } from "@/types";
+import type {
+  BridgeNodeData,
+  NodeData,
+  NonTerminalNodeType,
+  TransferNodeData,
+} from "@/types";
 
+import { BridgeNodeUpdate } from "./bridge";
 import { TransferNodeUpdate } from "./transfer";
 
 export const NodeUpdate = () => {
@@ -53,6 +59,12 @@ export const NodeUpdate = () => {
         <TransferNodeUpdate
           metadata={node.metadata}
           node={node.node as Node<TransferNodeData>}
+        />
+      )}
+      {node.node.type === "bridge" && (
+        <BridgeNodeUpdate
+          metadata={node.metadata}
+          node={node.node as Node<BridgeNodeData>}
         />
       )}
     </div>

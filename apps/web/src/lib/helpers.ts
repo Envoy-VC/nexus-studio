@@ -45,6 +45,15 @@ export const getDefaultNodeData = (type: NodeType) => {
     };
   }
 
+  if (type === "bridge") {
+    return {
+      amount: 0.1,
+      chainId: 11155111,
+      sourceChains: [84532],
+      token: "ETH",
+    };
+  }
+
   return {};
 };
 

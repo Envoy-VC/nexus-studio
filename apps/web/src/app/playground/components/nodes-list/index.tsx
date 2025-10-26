@@ -27,6 +27,7 @@ export const NodesListView = () => {
 
         const newNode = {
           data: getDefaultNodeData(nodeType),
+          dragHandle: ".drag-handle__custom",
           id: crypto.randomUUID(),
           position,
           type: nodeType,
