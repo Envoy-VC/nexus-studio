@@ -35,6 +35,9 @@ importers:
       '@avail-project/nexus-core':
         specifier: ^0.0.1
         version: 0.0.1(bufferutil@4.0.9)(google-protobuf@3.21.4)(utf-8-validate@5.0.10)(viem@2.38.3(bufferutil@4.0.9)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@4.1.11))(vitest@3.0.9(@types/debug@4.1.12)(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(tsx@4.20.6))
+      '@neodrag/react':
+        specifier: ^2.3.1
+        version: 2.3.1
       '@nexus-studio/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -1193,6 +1196,9 @@ packages:
     resolution: {integrity: sha512-x0fWaQtYp4E6sktbsdAqnehxDgEc/VwM7uLsRCYWaiGu0ykYdZPiS8zCWdnjHwyiumousxfBm4SO31eXqwEZhQ==}
     cpu: [x64]
     os: [win32]
+
+  '@neodrag/react@2.3.1':
+    resolution: {integrity: sha512-mOVefo3mFmaVLs9PB5F5wMXnnclG81qjOaPHyf8YZUnw/Ciz0pAqyJDwDJk0nPTIK5I2x1JdjXSchGNdCxZNRQ==}
 
   '@next/env@15.5.4':
     resolution: {integrity: sha512-27SQhYp5QryzIT5uO8hq99C69eLQ7qkzkDPsk3N+GuS2XgOgoYEeOav7Pf8Tn4drECOVDsDg8oj+/DVy8qQL2A==}
@@ -5689,6 +5695,8 @@ snapshots:
 
   '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.3':
     optional: true
+
+  '@neodrag/react@2.3.1': {}
 
   '@next/env@15.5.4': {}
 

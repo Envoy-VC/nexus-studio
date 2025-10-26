@@ -24,7 +24,7 @@ import "@xyflow/react/dist/style.css";
 import { PlaygroundNavbar } from "./navbar";
 import { NodeView } from "./node-view";
 import { nodeTypes } from "./nodes";
-import { NodesListView } from "./nodes-list-view";
+import { NodesListView } from "./nodes-list";
 
 const initialNodes: Node[] = [
   {
@@ -67,13 +67,11 @@ export const PlaygroundEditor = () => {
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
 
   const onNodesChange = useCallback((changes: NodeChange<Node>[]) => {
-    console.log("Changes: ", changes);
     setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot));
   }, []);
 
   const onNodesDelete = useCallback(
     (deleted: Node[]) => {
-      console.log("Deleted: ", deleted);
       let remainingNodes = [...nodes];
       setEdges(
         deleted.reduce((acc, node) => {
