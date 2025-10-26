@@ -18,6 +18,8 @@ import {
 import "@xyflow/react/dist/style.css";
 
 import { PlaygroundNavbar } from "./navbar";
+import { NodeView } from "./node-view";
+import { NodesListView } from "./nodes-list-view";
 
 const initialNodes = [
   { data: { label: "Node 1" }, id: "n1", position: { x: 0, y: 0 } },
@@ -55,6 +57,8 @@ export const PlaygroundEditor = () => {
       onNodesChange={onNodesChange}
     >
       <PlaygroundNavbar />
+      <NodesListView />
+      <NodeView />
       <Background />
       <Controls />
     </ReactFlow>
