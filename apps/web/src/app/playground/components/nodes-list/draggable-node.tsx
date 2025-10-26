@@ -3,11 +3,11 @@ import { useRef, useState } from "react";
 import { useDraggable } from "@neodrag/react";
 import type { XYPosition } from "@xyflow/react";
 
-import type { NexusActionNode } from "@/lib/helpers";
+import type { NodeMetadata, NonTerminalNodeType } from "@/types";
 
 interface DraggableNodeProps {
-  node: NexusActionNode;
-  onDrop: (nodeType: NexusActionNode["type"], position: XYPosition) => void;
+  node: NodeMetadata;
+  onDrop: (nodeType: NonTerminalNodeType, position: XYPosition) => void;
 }
 
 export const DraggableNode = ({ node, onDrop }: DraggableNodeProps) => {
@@ -25,7 +25,7 @@ export const DraggableNode = ({ node, onDrop }: DraggableNodeProps) => {
     },
     onDragEnd: ({ event }) => {
       setPosition({ x: 0, y: 0 });
-      onDrop(node.type, {
+      onDrop(node.type as NonTerminalNodeType, {
         x: event.clientX,
         y: event.clientY,
       });
